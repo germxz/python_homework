@@ -102,8 +102,10 @@ def set_that_secret(value):
     custom_module.set_that_secret(value)
 
 import csv
+from datetime import datetime
 
 def read_minutes():
+    global minutes1, minutes2
     minutes1 = {}
     minutes2 = {}
 
@@ -123,3 +125,63 @@ def read_minutes():
     except Exception as e:
         print(e)
         return None, None
+
+read_minutes()
+
+def create_minutes_set():
+    global minutes_set
+    rows_set = set()
+    
+    try:
+        for row in minutes1["rows"]:
+            rows_set.add(row)
+        
+        for row in minutes2["rows"]:
+            rows_set.add(row)
+        
+        minutes_set = rows_set
+        return rows_set
+    
+    except Exception as e:
+        print(f"Error creating minutes set: {e}")
+        return set()
+
+def create_minutes_list():
+    global minutes_list
+    combined_rows = []
+    
+    try:
+        combined_rows.extend(minutes1["rows"])
+        combined_rows.extend(minutes2["rows"])
+        
+        result = []
+        for name, date_str in combined_rows:
+            date_obj = datetime.strptime(date_str, "%B %d, %Y")
+            result.append((name, date_obj))
+        
+        result.sort(key=lambda x: x[1])
+        
+        minutes_list = result
+        return result
+    
+    except Exception as e:
+        print(f"Error creating minutes list: {e}")
+        return []
+
+def write_sorted_list():
+    try:
+        sorted_list = create_minutes_list()
+        
+        with open("./minutes.csv", "w", newline="") as f:
+            writer = csv.writer(f)
+            writer.writerow(["Name", "Date"])
+            
+            for name, date_obj in sorted_list:
+                date_str = date_obj.strftime("%B %d, %Y")
+                writer.writerow([name, date_str])
+        
+        return [(name, date_obj.strftime("%B %d, %Y")) for name, date_obj in sorted_list]
+    
+    except Exception as e:
+        print(f"Error writing sorted list: {e}")
+        return []
