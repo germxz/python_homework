@@ -1,0 +1,12 @@
+function: hello
+positional parameters: none
+keyword parameters: none
+return: None
+function: check_args
+positional parameters: [1, 2, 3]
+keyword parameters: none
+return: True
+function: check_kwargs
+positional parameters: none
+keyword parameters: {'a': 1, 'b': 2}
+return: <function logger_decorator at 0x00000275ACA0F880>
