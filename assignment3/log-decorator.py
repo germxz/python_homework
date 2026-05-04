@@ -13,8 +13,6 @@ def logger_decorator(func):
             pos_params = list(args)
         else:
             pos_params = "none"
-
-        # keyword args
         if kwargs:
             kw_params = kwargs
         else:
@@ -23,7 +21,7 @@ def logger_decorator(func):
         
         result = func(*args, **kwargs)
 
-        # logging
+        #logging
         logger.info(f"function: {func_name}")
         logger.info(f"positional parameters: {pos_params}")
         logger.info(f"keyword parameters: {kw_params}")
@@ -49,4 +47,3 @@ if __name__ == "__main__":
     hello()
     check_args(1, 2, 3)
     check_kwargs(a=1, b=2)
-    
