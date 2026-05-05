@@ -3,7 +3,7 @@ import csv
 employees = []
 
 with open("../csv/employees.csv", "r") as file:
-    reader = csv.DictReader(file)
+    reader = csv.reader(file)
     for row in reader:
         employees.append(row)
 

@@ -15,7 +15,6 @@ class Point:
     def distance(self, other):
         return math.sqrt((self.x - other.x)**2 + (self.y - other.y)**2)
 
-
 class Vector(Point):
     def __str__(self):
         return f"<{self.x}, {self.y}>"
@@ -35,3 +34,5 @@ v2 = Vector(4, 5)
 
 print(v1)
 print(v1 + v2)
+print(p1 == Point(1, 2))  
+print(p1 == p2)           
