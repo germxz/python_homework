@@ -1,0 +1,12 @@
+Which sections of the website are restricted for crawling?
+- Wikipedia robots.txt blocks several specific crawlers entirely.
+- Examples include MJ12bot, UbiCrawler, DOC, Zao, sitecheck.internetseer.com, Zealbot, MSIECrawler, SiteSnagger, WebStripper, WebCopier, and Fetch.
+
+Are there specific rules for certain user agents?
+- Yes. The robots.txt file names specific user agents and gives each its own rule.
+- Some user agents are disallowed completely, while others like IsraBot and Orthogaffe are allowed.
+
+Why websites use robots.txt and how it promotes ethical scraping:
+- Websites use robots.txt to tell crawlers which pages they may or may not request.
+- This helps protect the site from overload, broken behavior, and unwanted copying.
+- Respecting robots.txt is part of ethical scraping because it follows the website owner's rules.
