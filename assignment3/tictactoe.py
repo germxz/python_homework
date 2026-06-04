@@ -38,6 +38,7 @@ class Board:
         if self.board_array[row][column] != " ":
             raise TictactoeException("That spot is taken.")
         self.board_array[row][column] = self.turn
+        self.last_move = move_string
         if self.turn == "X":
             self.turn = "O"
         else:
