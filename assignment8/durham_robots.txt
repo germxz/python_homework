@@ -1,0 +1,14 @@
+Durham County Library robots.txt Review
+========================================
+URL reviewed: https://durhamcountylibrary.org/robots.txt
+
+Disallowed paths:
+- Lists any restricted paths you saw (like /admin, /private etc.)
+
+Allowed paths:
+- Search results pages are not restricted
+
+Compliance confirmation:
+- Our scraping targets the public search results page only
+- We are not accessing any disallowed paths
+- We are not scraping at a fast rate that would abuse the server

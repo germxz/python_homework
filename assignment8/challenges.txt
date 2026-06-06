@@ -1,0 +1,4 @@
+Challenges faced and how I resolved them:
+- I needed to find the correct page structure for the OWASP Top Ten list.
+- The landing page URL did not show the top 10 items directly, so I followed the OWASP Top Ten 2025 link and extracted the actual list there.
+- I kept the code simple with short comments so it is easy to read and understand.

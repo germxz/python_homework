@@ -1,0 +1,44 @@
+Question 1: Which sections of the website are restricted for crawling?
+
+The following URL paths are disallowed in Wikipedia's robots.txt:
+
+Disallow: /wiki/MediaWiki:Spam-blacklist
+Disallow: /wiki/MediaWiki_talk:Spam-blacklist
+Disallow: /wiki/Wikipedia:WikiProject_Spam
+Disallow: /wiki/Wikipedia_talk:WikiProject_Spam
+Disallow: /wiki/Wikipedia:Articles_for_deletion
+Disallow: /wiki/Wikipedia:Article_Incubator
+Disallow: /wiki/Wikipedia_talk:Article_Incubator
+Disallow: /wiki/Category:Noindexed_pages
+Disallow: /wiki/Module:Sandbox
+Disallow: /wiki/Template:TemplateStyles_sandbox
+Disallow: /wiki/Wikipedia:Administrator_recall
+Disallow: /wiki/Wikipedia_talk:Administrator_recall
+Disallow: /wiki/Wikipedia:Administrator_elections
+Disallow: /wiki/Wikipedia_talk:Administrator_elections
+Disallow: /wiki/Wikipedia:Requests_for_comment/
+
+Question 2: Are there specific rules for certain user agents?
+
+Yes. Wikipedia's robots.txt has rules for specific user agents.
+Certain bots are completely blocked with Disallow: / including:
+- sitecheck.internetseer.com
+- Zealbot
+- MSIECrawler
+- SiteSnagger
+- WebStripper
+- WebCopier
+- HTTrack
+- larbin
+- libwww
+- fast (blocked for requesting too fast)
+- wget (warned about recursive mode)
+
+Question 3: Why do websites use robots.txt?
+
+Websites use robots.txt to communicate crawling policies to web robots 
+and scrapers. It helps protect server resources by preventing bots from 
+making too many requests too quickly, which could cause a denial-of-service 
+effect. It also allows sites to keep certain pages like spam lists, 
+deletion discussions, and sandbox pages out of search engine indexes, 
+protecting both the site's integrity and its users' privacy.
