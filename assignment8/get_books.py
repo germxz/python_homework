@@ -1,3 +1,25 @@
+# HTML/DOM Exploration Notes
+# ===========================
+# URL scraped: https://durhamcounty.bibliocommons.com/v2/search?query=learning%20spanish&searchType=smart
+#
+# Search result list item:
+#   Tag: li
+#   Class: cp-search-result-item
+#
+# Title element:
+#   Tag: span or a
+#   Class: title-content
+#
+# Author element:
+#   Tag: a (link)
+#   Class: author-link
+#   Note: multiple authors joined with semicolon ;
+#
+# Format/Year element:
+#   Tag: span inside div
+#   Class: manifestation-item-format-info-wrap
+#   Note: we grab the first span inside that div
+
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
@@ -6,7 +28,6 @@ from selenium.webdriver.support import expected_conditions as EC
 from webdriver_manager.chrome import ChromeDriverManager
 import pandas as pd
 import json
-
 # Task 3: Load the Durham County search page
 # Step 1: Load the web page
 url = "https://durhamcounty.bibliocommons.com/v2/search?query=learning%20spanish&searchType=smart"
