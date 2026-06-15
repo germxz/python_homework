@@ -1,10 +1,17 @@
-import readline  # Provides command line editing and history
+try:
+    import readline
+except ImportError:
+    pass  # Provides command line editing and history
 import sqlite3   # For SQL command execution
-import sys
-conn = sqlite3.connect("./db/lesson.db",isolation_level='IMMEDIATE')
-conn.execute("PRAGMA foreign_keys = 1")
 
-cursor = conn.cursor()
+try:
+    
+    import sys
+    conn = sqlite3.connect("./db/lesson.db",isolation_level='IMMEDIATE')
+    conn.execute("PRAGMA foreign_keys = 1")
+    cursor = conn.cursor()
+except ImportError :
+    pass
 
 
 tables = cursor.execute("SELECT name FROM sqlite_schema WHERE type='table' ORDER BY 'name'").fetchall()
