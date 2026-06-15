@@ -81,7 +81,7 @@ except Exception as e:
     conn.rollback()
     print(f"Transaction failed, rolled back: {e}")
 
-# Print the line items of the new order (SELECT with JOIN per the assignment)
+# Print the line items of the new order 
 cursor.execute(
     """SELECT li.line_item_id, li.quantity, p.product_name
        FROM line_items AS li
@@ -93,18 +93,17 @@ for row in cursor.fetchall():
     print(f"Line item {row[0]}: {row[1]} x {row[2]}")
 
 
-
 # Task 4: Employees with more than 5 orders
-print("\nTask 4: Employees with more than 5 orders")
-task4_query = """SELECT e.employee_id, e.first_name, e.last_name
-                FROM employees AS e
-                JOIN orders AS o ON e.employee_id = o.employee_id
-                GROUP BY e.employee_id, e.first_name, e.last_name
-                HAVING COUNT(o.order_id) > 5
+task4_query = """
+    SELECT e.employee_id, e.first_name, e.last_name, COUNT(o.order_id) AS order_count
+    FROM employees AS e
+    JOIN orders AS o ON e.employee_id = o.employee_id
+    GROUP BY e.employee_id
+    HAVING COUNT(o.order_id) > 5;
 """
 cursor.execute(task4_query)
 for row in cursor.fetchall():
-    print(f"Employee {row[0]}: {row[1]} {row[2]} orders")
+    print(f"Employee {row[0]}: {row[1]} {row[2]} - {row[3]} orders")
                 
 # close connection
-conn.close()sk 
+conn.close()
